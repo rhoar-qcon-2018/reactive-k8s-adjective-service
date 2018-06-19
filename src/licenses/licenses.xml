@@ -7,7 +7,7 @@
             <version>2.7.7.redhat-7</version>
             <licenses>
                 <license>
-                    <name>BSD 3-clause "New" or "Revised" License</name>
+                    <noun_text>BSD 3-clause "New" or "Revised" License</noun_text>
                     <url>https://opensource.org/licenses/BSD-3-Clause/</url>
                 </license>
             </licenses>
@@ -18,7 +18,7 @@
             <version>3.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -29,11 +29,11 @@
             <version>1.1.11</version>
             <licenses>
                 <license>
-                    <name>GNU Lesser General Public License v2.1 only</name>
+                    <noun_text>GNU Lesser General Public License v2.1 only</noun_text>
                     <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
                 </license>
                 <license>
-                    <name>Eclipse Public License, Version 1.0</name>
+                    <noun_text>Eclipse Public License, Version 1.0</noun_text>
                     <url>http://repository.jboss.org/licenses/epl-1.0.txt</url>
                 </license>
             </licenses>
@@ -44,11 +44,11 @@
             <version>1.1.11</version>
             <licenses>
                 <license>
-                    <name>GNU Lesser General Public License v2.1 only</name>
+                    <noun_text>GNU Lesser General Public License v2.1 only</noun_text>
                     <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
                 </license>
                 <license>
-                    <name>Eclipse Public License, Version 1.0</name>
+                    <noun_text>Eclipse Public License, Version 1.0</noun_text>
                     <url>http://repository.jboss.org/licenses/epl-1.0.txt</url>
                 </license>
             </licenses>
@@ -59,7 +59,7 @@
             <version>1.3.4</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -70,7 +70,7 @@
             <version>2.8.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -81,7 +81,7 @@
             <version>2.8.11</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -92,7 +92,7 @@
             <version>2.8.11.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -103,7 +103,7 @@
             <version>2.8.11</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -114,7 +114,7 @@
             <version>2.8.11</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -125,7 +125,7 @@
             <version>2.8.11</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -136,7 +136,7 @@
             <version>2.8.11</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -147,7 +147,7 @@
             <version>1.0.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -158,7 +158,7 @@
             <version>1.3.9</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -169,7 +169,7 @@
             <version>2.0.18</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -180,7 +180,7 @@
             <version>23.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -191,7 +191,7 @@
             <version>1.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -202,7 +202,7 @@
             <version>1.1.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -213,11 +213,11 @@
             <version>1.4.197</version>
             <licenses>
                 <license>
-                    <name>Eclipse Public License, Version 1.0</name>
+                    <noun_text>Eclipse Public License, Version 1.0</noun_text>
                     <url>http://repository.jboss.org/licenses/epl-1.0.txt</url>
                 </license>
                 <license>
-                    <name>Mozilla Public License 2.0</name>
+                    <noun_text>Mozilla Public License 2.0</noun_text>
                     <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
                 </license>
             </licenses>
@@ -228,7 +228,7 @@
             <version>1.7.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -239,7 +239,7 @@
             <version>2.2.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -250,7 +250,7 @@
             <version>2.9.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -261,7 +261,7 @@
             <version>2.9.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -272,7 +272,7 @@
             <version>2.9.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -283,7 +283,7 @@
             <version>2.9.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -294,7 +294,7 @@
             <version>3.9.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -305,7 +305,7 @@
             <version>3.8.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -316,7 +316,7 @@
             <version>1.13.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -327,7 +327,7 @@
             <version>0.0.20131108.vaadin1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -338,7 +338,7 @@
             <version>1.10.0.redhat-5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -349,7 +349,7 @@
             <version>1.0.15.redhat-2</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -360,7 +360,7 @@
             <version>2.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -371,7 +371,7 @@
             <version>2.6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -382,7 +382,7 @@
             <version>1.11-8</version>
             <licenses>
                 <license>
-                    <name>BSD 2-clause "Simplified" License</name>
+                    <noun_text>BSD 2-clause "Simplified" License</noun_text>
                     <url>https://opensource.org/licenses/BSD-2-Clause/</url>
                 </license>
             </licenses>
@@ -393,7 +393,7 @@
             <version>1.6.1.redhat-7</version>
             <licenses>
                 <license>
-                    <name>BSD 3-clause "New" or "Revised" License</name>
+                    <noun_text>BSD 3-clause "New" or "Revised" License</noun_text>
                     <url>https://opensource.org/licenses/BSD-3-Clause/</url>
                 </license>
             </licenses>
@@ -404,7 +404,7 @@
             <version>3.1.8</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -415,7 +415,7 @@
             <version>0.3.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -426,7 +426,7 @@
             <version>2.9.3</version>
             <licenses>
                 <license>
-                    <name>MIT License</name>
+                    <noun_text>MIT License</noun_text>
                     <url>https://opensource.org/licenses/MIT/</url>
                 </license>
             </licenses>
@@ -437,7 +437,7 @@
             <version>1.0</version>
             <licenses>
                 <license>
-                    <name>Common Development and Distribution License 1.0</name>
+                    <noun_text>Common Development and Distribution License 1.0</noun_text>
                     <url>http://repository.jboss.org/licenses/cddl.txt</url>
                 </license>
             </licenses>
@@ -448,7 +448,7 @@
             <version>1.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -459,7 +459,7 @@
             <version>1.0.0.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -470,7 +470,7 @@
             <version>1.2</version>
             <licenses>
                 <license>
-                    <name>Common Development and Distribution License (CDDL) and GNU Public License v.2 w/Classpath Exception</name>
+                    <noun_text>Common Development and Distribution License (CDDL) and GNU Public License v.2 w/Classpath Exception</noun_text>
                     <url>https://netbeans.org/cddl-gplv2.html</url>
                 </license>
             </licenses>
@@ -481,7 +481,7 @@
             <version>1.1.0.Final</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -492,7 +492,7 @@
             <version>4.12</version>
             <licenses>
                 <license>
-                    <name>Eclipse Public License, Version 1.0</name>
+                    <noun_text>Eclipse Public License, Version 1.0</noun_text>
                     <url>http://repository.jboss.org/licenses/epl-1.0.txt</url>
                 </license>
             </licenses>
@@ -503,7 +503,7 @@
             <version>1.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -514,7 +514,7 @@
             <version>2.2.1</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -525,7 +525,7 @@
             <version>1.9.4</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -536,7 +536,7 @@
             <version>1.9.4</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -547,7 +547,7 @@
             <version>1.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -558,7 +558,7 @@
             <version>3.4</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -569,7 +569,7 @@
             <version>4.5.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -580,7 +580,7 @@
             <version>4.3.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -591,7 +591,7 @@
             <version>4.4.9</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -602,7 +602,7 @@
             <version>4.5.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -613,7 +613,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -624,7 +624,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -635,7 +635,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -646,7 +646,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -657,7 +657,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -668,7 +668,7 @@
             <version>3.2.5</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -679,7 +679,7 @@
             <version>3.0.0</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -690,7 +690,7 @@
             <version>2.6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -701,7 +701,7 @@
             <version>2.6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -712,7 +712,7 @@
             <version>2.6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -723,7 +723,7 @@
             <version>2.6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -734,7 +734,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -745,7 +745,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -756,7 +756,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -767,7 +767,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -778,7 +778,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -789,7 +789,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -800,7 +800,7 @@
             <version>8.5.20.redhat-6</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -811,7 +811,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -822,7 +822,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -833,7 +833,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -844,7 +844,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -855,7 +855,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -866,7 +866,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>
@@ -877,7 +877,7 @@
             <version>1.15.3</version>
             <licenses>
                 <license>
-                    <name>Apache License 2.0</name>
+                    <noun_text>Apache License 2.0</noun_text>
                     <url>http://www.apache.org/licenses/LICENSE-2.0</url>
                 </license>
             </licenses>

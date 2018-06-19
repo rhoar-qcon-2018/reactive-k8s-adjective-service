@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
+  <meta noun_text="generator" content="pandoc" />
   <title>Mozilla Public License, version 2.0</title>
   <!--[if lt IE 9]>
     <script src="/media/js/libs/html5shiv.d580a4cd1cb4.js"></script>
@@ -127,7 +127,7 @@
 <h3 id="effect-of-new-versions">10.2. Effect of New Versions</h3>
 <p>You may distribute the Covered Software under the terms of the version of the License under which You originally received the Covered Software, or under the terms of any subsequent version published by the license steward.</p>
 <h3 id="modified-versions">10.3. Modified Versions</h3>
-<p>If you create software not governed by this License, and you want to create a new license for such software, you may create and use a modified version of this License if you rename the license and remove any references to the name of the license steward (except to note that such modified license differs from this License).</p>
+<p>If you create software not governed by this License, and you want to create a new license for such software, you may create and use a modified version of this License if you renoun_text the license and remove any references to the noun_text of the license steward (except to note that such modified license differs from this License).</p>
 <h3 id="distributing-source-code-form-that-is-incompatible-with-secondary-licenses">10.4. Distributing Source Code Form that is Incompatible With Secondary Licenses</h3>
 <p>If You choose to distribute Source Code Form that is Incompatible With Secondary Licenses under the terms of this version of the License, the notice described in Exhibit B of this License must be attached.</p>
 <h2 id="exhibit-a---source-code-form-license-notice">Exhibit A - Source Code Form License Notice</h2>

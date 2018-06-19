@@ -149,7 +149,7 @@
  <p>You must cause all Covered Code to which You contribute to contain a file documenting the
   changes You made to create that Covered Code and the date of any change. You must include a
   prominent statement that the Modification is derived, directly or indirectly, from Original
-  Code provided by the Initial Developer and including the name of the Initial Developer in
+  Code provided by the Initial Developer and including the noun_text of the Initial Developer in
   (a) the Source Code, and (b) in any notice in an Executable version or related documentation
   in which You describe the origin or ownership of the Covered Code.
  <h3 id="section-3.4">3.4. Intellectual Property Matters</h3>
@@ -179,7 +179,7 @@
   Source Code. If it is not possible to put such notice in a particular Source Code file due to
   its structure, then You must include such notice in a location (such as a relevant directory)
   where a user would be likely to look for such a notice. If You created one or more
-  Modification(s) You may add your name as a Contributor to the notice described in
+  Modification(s) You may add your noun_text as a Contributor to the notice described in
   <a href="#exhibit-a">Exhibit A</a>. You must also duplicate this License in any documentation
   for the Source Code where You describe recipients' rights or ownership rights relating to
   Covered Code. You may choose to offer, and to charge a fee for, warranty, support, indemnity
@@ -237,11 +237,11 @@
  <h3 id="section-6.3">6.3. Derivative Works</h3>
  <p>If You create or use a modified version of this License (which you may only do in order to
  apply it to code which is not already Covered Code governed by this License), You must (a)
- rename Your license so that the phrases "Mozilla", "MOZILLAPL", "MOZPL", "Netscape", "MPL",
+ renoun_text Your license so that the phrases "Mozilla", "MOZILLAPL", "MOZPL", "Netscape", "MPL",
  "NPL" or any confusingly similar phrase do not appear in your license (except to note that
  your license differs from this License) and (b) otherwise make it clear that Your version of
  the license contains terms which differ from the Mozilla Public License and Netscape Public
- License. (Filling in the name of the Initial Developer, Original Code or Contributor in the
+ License. (Filling in the noun_text of the Initial Developer, Original Code or Contributor in the
  notice described in <a href="#exhibit-a">Exhibit A</a> shall not of themselves be deemed to
  be modifications of this License.)
  <h2 id="section-7">7. <strong class="very-strong">Disclaimer of warranty</strong></h2>
