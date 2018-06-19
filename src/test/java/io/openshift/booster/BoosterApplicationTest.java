@@ -99,7 +99,7 @@ public class BoosterApplicationTest {
                 .then()
                 .statusCode(201)
                 .body("id", not(isEmptyString()))
-                .body("name", is("artless"));
+                .body("body", is("artless"));
     }
 
     @Test
@@ -134,13 +134,13 @@ public class BoosterApplicationTest {
     public void testPut() {
         Adjective artless = adjectiveRepository.save(new Adjective("artless"));
         given().contentType(ContentType.JSON)
-                .body(Collections.singletonMap("name", "Lemon"))
+                .body(Collections.singletonMap("body", "artless"))
                 .when()
                 .put(String.valueOf(artless.getId()))
                 .then()
                 .statusCode(200)
                 .body("id", is(artless.getId()))
-                .body("name", is("Lemon"));
+                .body("body", is("artless"));
 
     }
 
