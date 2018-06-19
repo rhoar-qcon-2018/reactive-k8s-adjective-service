@@ -16,7 +16,40 @@
 
 package io.openshift.booster.service;
 
-import org.springframework.data.repository.CrudRepository;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public interface FruitRepository extends CrudRepository<Fruit, Integer> {
+@Entity
+public class Adjective {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String body;
+
+    public Adjective() {
+    }
+
+    public Adjective(String body) {
+        this.body = body;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
 }

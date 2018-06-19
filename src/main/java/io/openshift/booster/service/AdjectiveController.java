@@ -38,24 +38,24 @@ import java.util.stream.StreamSupport;
 
 @RestController
 @RequestMapping(value = "/api/fruits")
-public class FruitController {
+public class AdjectiveController {
 
-    private final FruitRepository repository;
+    private final AdjectiveRepository repository;
 
-    public FruitController(FruitRepository repository) {
+    public AdjectiveController(AdjectiveRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/{id}")
-    public Fruit get(@PathVariable("id") Integer id) {
+    public Adjective get(@PathVariable("id") Integer id) {
         verifyFruitExists(id);
 
         return repository.findOne(id);
     }
 
     @GetMapping
-    public List<Fruit> getAll() {
-        Spliterator<Fruit> fruits = repository.findAll()
+    public List<Adjective> getAll() {
+        Spliterator<Adjective> fruits = repository.findAll()
                 .spliterator();
 
         return StreamSupport
@@ -65,15 +65,15 @@ public class FruitController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Fruit post(@RequestBody(required = false) Fruit fruit) {
-        verifyCorrectPayload(fruit);
+    public Adjective post(@RequestBody(required = false) Adjective adjective) {
+        verifyCorrectPayload(adjective);
 
-        return repository.save(fruit);
+        return repository.save(adjective);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    public Fruit put(@PathVariable("id") Integer id, @RequestBody(required = false) Fruit fruit) {
+    public Adjective put(@PathVariable("id") Integer id, @RequestBody(required = false) Adjective fruit) {
         verifyFruitExists(id);
         verifyCorrectPayload(fruit);
 
@@ -95,16 +95,16 @@ public class FruitController {
         }
     }
 
-    private void verifyCorrectPayload(Fruit fruit) {
-        if (Objects.isNull(fruit)) {
+    private void verifyCorrectPayload(Adjective adjective) {
+        if (Objects.isNull(adjective)) {
             throw new UnsupportedMediaTypeException("Invalid payload!");
         }
 
-        if (Objects.isNull(fruit.getName()) || fruit.getName().trim().length() == 0) {
+        if (Objects.isNull(adjective.getBody()) || adjective.getBody().trim().length() == 0) {
             throw new UnprocessableEntityException("The name is required!");
         }
 
-        if (!Objects.isNull(fruit.getId())) {
+        if (!Objects.isNull(adjective.getId())) {
             throw new UnprocessableEntityException("Id was invalidly set on request.");
         }
     }

@@ -20,8 +20,8 @@ import java.util.Collections;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
-import io.openshift.booster.service.Fruit;
-import io.openshift.booster.service.FruitRepository;
+import io.openshift.booster.service.Adjective;
+import io.openshift.booster.service.AdjectiveRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,23 +46,23 @@ public class BoosterApplicationTest {
     private int port;
 
     @Autowired
-    private FruitRepository fruitRepository;
+    private AdjectiveRepository adjectiveRepository;
 
     @Before
     public void beforeTest() {
-        fruitRepository.deleteAll();
+        adjectiveRepository.deleteAll();
         RestAssured.baseURI = String.format("http://localhost:%d/api/fruits", port);
     }
 
     @Test
     public void testGetAll() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
-        Fruit apple = fruitRepository.save(new Fruit("Apple"));
+        Adjective artless = adjectiveRepository.save(new Adjective("artless"));
+        Adjective basecourt = adjectiveRepository.save(new Adjective("base-court"));
         when().get()
                 .then()
                 .statusCode(200)
-                .body("id", hasItems(cherry.getId(), apple.getId()))
-                .body("name", hasItems(cherry.getName(), apple.getName()));
+                .body("id", hasItems(artless.getId(), basecourt.getId()))
+                .body("body", hasItems(artless.getBody(), basecourt.getBody()));
     }
 
     @Test
@@ -75,12 +75,12 @@ public class BoosterApplicationTest {
 
     @Test
     public void testGetOne() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
-        when().get(String.valueOf(cherry.getId()))
+        Adjective bawdy = adjectiveRepository.save(new Adjective("bawdy"));
+        when().get(String.valueOf(bawdy.getId()))
                 .then()
                 .statusCode(200)
-                .body("id", is(cherry.getId()))
-                .body("name", is(cherry.getName()));
+                .body("id", is(bawdy.getId()))
+                .body("body", is(bawdy.getBody()));
     }
 
     @Test
@@ -93,13 +93,13 @@ public class BoosterApplicationTest {
     @Test
     public void testPost() {
         given().contentType(ContentType.JSON)
-                .body(Collections.singletonMap("name", "Cherry"))
+                .body(Collections.singletonMap("body", "artless"))
                 .when()
                 .post()
                 .then()
                 .statusCode(201)
                 .body("id", not(isEmptyString()))
-                .body("name", is("Cherry"));
+                .body("name", is("artless"));
     }
 
     @Test
@@ -132,14 +132,14 @@ public class BoosterApplicationTest {
 
     @Test
     public void testPut() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
+        Adjective artless = adjectiveRepository.save(new Adjective("artless"));
         given().contentType(ContentType.JSON)
                 .body(Collections.singletonMap("name", "Lemon"))
                 .when()
-                .put(String.valueOf(cherry.getId()))
+                .put(String.valueOf(artless.getId()))
                 .then()
                 .statusCode(200)
-                .body("id", is(cherry.getId()))
+                .body("id", is(artless.getId()))
                 .body("name", is("Lemon"));
 
     }
@@ -156,42 +156,42 @@ public class BoosterApplicationTest {
 
     @Test
     public void testPutWithWrongPayload() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
+        Adjective beslubbering = adjectiveRepository.save(new Adjective("beslubbering"));
         given().contentType(ContentType.JSON)
                 .body(Collections.singletonMap("id", 0))
                 .when()
-                .put(String.valueOf(cherry.getId()))
+                .put(String.valueOf(beslubbering.getId()))
                 .then()
                 .statusCode(422);
     }
 
     @Test
     public void testPutWithNonJsonPayload() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
+        Adjective bootless = adjectiveRepository.save(new Adjective("bootless"));
         given().contentType(ContentType.XML)
                 .when()
-                .put(String.valueOf(cherry.getId()))
+                .put(String.valueOf(bootless.getId()))
                 .then()
                 .statusCode(415);
     }
 
     @Test
     public void testPutWithEmptyPayload() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
+        Adjective cockered = adjectiveRepository.save(new Adjective("cockered"));
         given().contentType(ContentType.JSON)
                 .when()
-                .put(String.valueOf(cherry.getId()))
+                .put(String.valueOf(cockered.getId()))
                 .then()
                 .statusCode(415);
     }
 
     @Test
     public void testDelete() {
-        Fruit cherry = fruitRepository.save(new Fruit("Cherry"));
-        when().delete(String.valueOf(cherry.getId()))
+        Adjective boilbrained = adjectiveRepository.save(new Adjective("boil-brained"));
+        when().delete(String.valueOf(boilbrained.getId()))
                 .then()
                 .statusCode(204);
-        assertFalse(fruitRepository.exists(cherry.getId()));
+        assertFalse(adjectiveRepository.exists(boilbrained.getId()));
     }
 
     @Test
