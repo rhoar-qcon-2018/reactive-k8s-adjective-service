@@ -30,9 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -46,9 +44,10 @@ public class AdjectiveController {
         this.repository = repository;
     }
 
+
     @GetMapping("/{id}")
     public Adjective get(@PathVariable("id") Integer id) {
-        verifyFruitExists(id);
+        verifyAdjectiveExists(id);
 
         return repository.findOne(id);
     }
@@ -73,23 +72,23 @@ public class AdjectiveController {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    public Adjective put(@PathVariable("id") Integer id, @RequestBody(required = false) Adjective fruit) {
-        verifyFruitExists(id);
-        verifyCorrectPayload(fruit);
+    public Adjective put(@PathVariable("id") Integer id, @RequestBody(required = false) Adjective adjective) {
+        verifyAdjectiveExists(id);
+        verifyCorrectPayload(adjective);
 
-        fruit.setId(id);
-        return repository.save(fruit);
+        adjective.setId(id);
+        return repository.save(adjective);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
-        verifyFruitExists(id);
+        verifyAdjectiveExists(id);
 
         repository.delete(id);
     }
 
-    private void verifyFruitExists(Integer id) {
+    private void verifyAdjectiveExists(Integer id) {
         if (!repository.exists(id)) {
             throw new NotFoundException(String.format("Adjective with id=%d was not found", id));
         }
