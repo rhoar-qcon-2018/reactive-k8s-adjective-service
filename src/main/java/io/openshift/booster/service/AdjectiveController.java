@@ -91,7 +91,7 @@ public class AdjectiveController {
 
     private void verifyFruitExists(Integer id) {
         if (!repository.exists(id)) {
-            throw new NotFoundException(String.format("Fruit with id=%d was not found", id));
+            throw new NotFoundException(String.format("Adjective with id=%d was not found", id));
         }
     }
 
@@ -101,7 +101,7 @@ public class AdjectiveController {
         }
 
         if (Objects.isNull(adjective.getBody()) || adjective.getBody().trim().length() == 0) {
-            throw new UnprocessableEntityException("The name is required!");
+            throw new UnprocessableEntityException("The body is required!");
         }
 
         if (!Objects.isNull(adjective.getId())) {
