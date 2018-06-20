@@ -51,7 +51,7 @@ public class BoosterApplicationTest {
     @Before
     public void beforeTest() {
         adjectiveRepository.deleteAll();
-        RestAssured.baseURI = String.format("http://localhost:%d/api/fruits", port);
+        RestAssured.baseURI = String.format("http://localhost:%d/api/adjectives", port);
     }
 
     @Test

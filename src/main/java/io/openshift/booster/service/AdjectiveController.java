@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping(value = "/api/fruits")
+@RequestMapping(value = "/api/adjectives")
 public class AdjectiveController {
 
     private final AdjectiveRepository repository;
@@ -55,11 +55,11 @@ public class AdjectiveController {
 
     @GetMapping
     public List<Adjective> getAll() {
-        Spliterator<Adjective> fruits = repository.findAll()
+        Spliterator<Adjective> adjectives = repository.findAll()
                 .spliterator();
 
         return StreamSupport
-                .stream(fruits, false)
+                .stream(adjectives, false)
                 .collect(Collectors.toList());
     }
 
