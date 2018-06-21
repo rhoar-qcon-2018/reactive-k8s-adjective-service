@@ -1,5 +1,2 @@
-DROP TABLE IF EXISTS adjective;
-CREATE TABLE IF NOT EXISTS adjective (
-  id        SERIAL PRIMARY KEY,
-  body      VARCHAR(40) NOT NULL
-);
+CREATE SCHEMA IF NOT EXISTS insults;
+DROP TABLE IF EXISTS insults.adjective;

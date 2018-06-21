@@ -17,5 +17,9 @@ spec:
                  secretKeyRef:
                    name: my-database-secret
                    key: password
+            - name: MY_DATABASE_SERVICE_HOST
+              value: postgresql-96-rhel7
+            - name: MY_DATABASE_SERVICE_PORT
+              value: 5432
             - name: JAVA_OPTIONS
               value: "-Dspring.profiles.active=openshift"

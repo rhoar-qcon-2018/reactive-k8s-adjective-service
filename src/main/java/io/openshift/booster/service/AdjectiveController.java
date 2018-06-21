@@ -16,6 +16,7 @@
 
 package io.openshift.booster.service;
 
+import com.fasterxml.jackson.databind.ser.std.IterableSerializer;
 import io.openshift.booster.exception.NotFoundException;
 import io.openshift.booster.exception.UnprocessableEntityException;
 import io.openshift.booster.exception.UnsupportedMediaTypeException;
@@ -54,13 +55,24 @@ public class AdjectiveController {
 
     @GetMapping
     public List<Adjective> getAll() {
-        Spliterator<Adjective> adjectives = repository.findAll()
-                .spliterator();
+
+        Spliterator<Adjective> adjectives;
+
+        List<Adjective> results = (List<Adjective>) repository.findAll();
+
+        if(results.isEmpty()){
+            initdb();
+            adjectives = results.spliterator();
+        }else{
+            adjectives = repository.findAll().spliterator();
+        }
+
 
         return StreamSupport
                 .stream(adjectives, false)
                 .collect(Collectors.toList());
     }
+
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
@@ -108,4 +120,17 @@ public class AdjectiveController {
         }
     }
 
+    private void initdb() {
+
+        List<String> adjectives2 = Arrays.asList(
+            new String[]{
+                    "artless", "base-court", "beslubbering"
+            }
+        );
+
+        for(String s : adjectives2){
+            repository.save(new Adjective(s));
+        }
+
+    }
 }
