@@ -56,6 +56,18 @@ public class BoosterApplicationTest {
         RestAssured.baseURI = String.format("http://localhost:%d/api/adjectives", port);
     }
 
+
+    @Test
+    public void testGetAllFromEmptyDB(){
+        Adjective artless = new Adjective("artless");
+        Adjective basecourt = new Adjective("base-court");
+
+        when().get()
+                .then()
+                .statusCode(200)
+                .body("body", hasItems(artless.getBody(), basecourt.getBody()));
+    }
+
     @Test
     public void testGetAll() {
         Adjective artless = adjectiveRepository.save(new Adjective("artless"));
