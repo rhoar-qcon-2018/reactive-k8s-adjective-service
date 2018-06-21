@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS adjective;
+CREATE TABLE IF NOT EXISTS adjective (
+  id        SERIAL PRIMARY KEY,
+  body      VARCHAR(40) NOT NULL
+);
