@@ -108,6 +108,22 @@
           </classpathDependencyExcludes>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <failBuildOnCVSS>8</failBuildOnCVSS>
+          <suppressionFile>suppressedDependencyCVE.xml</suppressionFile>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <!-- Used only to replace ${db.name} in index.html with the corresponding Database name -->
     <resources>
