@@ -95,7 +95,19 @@ items:
             name: '${project}'
             env:
             - name: KUBERNETES_NAMESPACE
-              value: ${targetNamespace}
+              value: labs-testuser10
+            - name: JAVA_ARGS
+              value: '-Dspring.profiles.active=openshift'
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: database-user
+                  name: insultdb
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: database-password
+                  name: insultdb
             ports:
               - containerPort: 8778
                 protocol: TCP
