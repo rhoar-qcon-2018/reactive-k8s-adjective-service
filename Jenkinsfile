@@ -186,8 +186,7 @@ pipeline {
         timeout(time: 15, unit: 'MINUTES')
     }
     environment {
-        PROJECT_NAME = 'kafka-service'
-        OPENSHIFT_KAFKA_BOOTSTRAP = 'my-cluster-kafka.default:9092'
+        PROJECT_NAME = 'adjective-service'
     }
     stages {
         stage('Quality And Security') {
