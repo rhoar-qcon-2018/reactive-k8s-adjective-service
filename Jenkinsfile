@@ -96,8 +96,6 @@ items:
             env:
             - name: KUBERNETES_NAMESPACE
               value: ${targetNamespace}
-            - name: JAVA_ARGS
-              value: '-Dspring.profiles.active=openshift'
             ports:
               - containerPort: 8778
                 protocol: TCP
@@ -200,7 +198,7 @@ pipeline {
                 }
                 stage('Compile & Test') {
                     steps {
-                        sh 'mvn -T 2 package -Plocal'
+                        sh 'mvn -T 2 package -Dspring.profiles.active=test'
                     }
                 }
                 stage('Ensure SonarQube Webhook is configured') {
