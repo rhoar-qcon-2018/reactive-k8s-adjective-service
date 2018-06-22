@@ -96,6 +96,8 @@ items:
             env:
             - name: KUBERNETES_NAMESPACE
               value: ${targetNamespace}
+            - name: JAVA_ARGS
+              value: '-Dspring.profiles.active=openshift'
             ports:
               - containerPort: 8778
                 protocol: TCP
