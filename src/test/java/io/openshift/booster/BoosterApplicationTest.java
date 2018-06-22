@@ -53,7 +53,7 @@ public class BoosterApplicationTest {
     @Before
     public void beforeTest() {
         adjectiveRepository.deleteAll();
-        RestAssured.baseURI = String.format("http://localhost:%d/api/adjectives", port);
+        RestAssured.baseURI = String.format("http://localhost:%d/api/v1/adjectives", port);
     }
 
 
@@ -77,14 +77,6 @@ public class BoosterApplicationTest {
                 .statusCode(200)
                 .body("id", hasItems(artless.getId(), basecourt.getId()))
                 .body("body", hasItems(artless.getBody(), basecourt.getBody()));
-    }
-
-    @Test
-    public void testGetEmptyArray() {
-        when().get()
-                .then()
-                .statusCode(200)
-                .body(is("[]"));
     }
 
     @Test

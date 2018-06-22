@@ -27,7 +27,7 @@ public class RandomAdjectiveTest {
     @Before
     public void beforeTest() {
         adjectiveRepository.deleteAll();
-        RestAssured.baseURI = String.format("http://localhost:%d/api/adjective", port);
+        RestAssured.baseURI = String.format("http://localhost:%d/api/v1/adjective", port);
 
         Adjective artless = adjectiveRepository.save(new Adjective("artless"));
         Adjective basecourt = adjectiveRepository.save(new Adjective("base-court"));

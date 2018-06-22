@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Spliterator;
 
 @RestController
-@RequestMapping(value = "/api/adjective")
+@RequestMapping(value = "/api/v1/adjective")
 public class RandomAdjectiveController {
 
     private final AdjectiveRepository repository;

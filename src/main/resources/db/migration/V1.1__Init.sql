@@ -1,2 +1,2 @@
-CREATE SCHEMA IF NOT EXISTS insults;
-DROP TABLE IF EXISTS insults.adjective;
+CREATE SCHEMA IF NOT EXISTS public;
+DROP TABLE IF EXISTS public.adjective;

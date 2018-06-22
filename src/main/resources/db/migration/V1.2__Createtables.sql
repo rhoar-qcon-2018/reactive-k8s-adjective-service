@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS insults.adjective (
-  id        SERIAL PRIMARY KEY,
-  body      VARCHAR(40) NOT NULL
+CREATE TABLE IF NOT EXISTS public.adjective (
+  id        SERIAL,
+  body      VARCHAR(40) NOT NULL,
+  PRIMARY KEY (id)
 );

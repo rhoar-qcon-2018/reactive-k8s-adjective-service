@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping(value = "/api/adjectives")
+@RequestMapping(value = "/api/v1/adjectives")
 public class AdjectiveController {
 
     private final AdjectiveRepository repository;
