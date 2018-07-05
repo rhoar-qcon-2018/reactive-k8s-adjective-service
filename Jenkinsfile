@@ -108,6 +108,8 @@ items:
                 secretKeyRef:
                   key: database-password
                   name: insultdb
+            - name: DB_HOST
+              value: insultdb
             ports:
               - containerPort: 8778
                 protocol: TCP
