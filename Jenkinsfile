@@ -15,7 +15,7 @@ pipeline {
                 script {
                   def pom = readMavenPom file: 'pom.xml'
                   mvnVersion = pom.version
-                  withSonarQubeEnv('sonarqube') {
+                  withSonarQubeEnv('sonar') {
                     try {
                       sh 'mvn install sonar:sonar'
                     } catch (error) {
@@ -85,7 +85,7 @@ pipeline {
         stage('Ensure SonarQube Webhook is configured') {
           when {
             expression {
-              withSonarQubeEnv('sonarqube') {
+              withSonarQubeEnv('sonar') {
                 def retVal = sh(returnStatus: true, script: "curl -k -u \"${SONAR_AUTH_TOKEN}:\" http://sonarqube.sonarqube.svc:9000/api/webhooks/list | grep Jenkins")
                 echo "CURL COMMAND: ${retVal}"
                 return (retVal > 0)
