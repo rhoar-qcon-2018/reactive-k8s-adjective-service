@@ -18,6 +18,10 @@ pipeline {
                   withSonarQubeEnv('sonar') {
                     try {
                       sh 'mvn install sonar:sonar'
+                      stage("Quality Gate") {
+                      timeout(time: 1, unit: 'HOURS') {
+                        waitForQualityGate abortPipeline: true
+                      }
                     } catch (error) {
                       publishHTML(target: [
                               reportDir            : 'target',
@@ -78,26 +82,6 @@ pipeline {
                         glob: '',
                         zipFile: 'jacoco-unit-test-report-no-js.zip',
                         archive: false
-              }
-            }
-          }
-        }
-        stage('Ensure SonarQube Webhook is configured') {
-          when {
-            expression {
-              withSonarQubeEnv('sonar') {
-                def retVal = sh(returnStatus: true, script: "curl -k -u \"${SONAR_AUTH_TOKEN}:\" http://sonarqube.sonarqube.svc:9000/api/webhooks/list | grep Jenkins")
-                echo "CURL COMMAND: ${retVal}"
-                return (retVal > 0)
-              }
-            }
-          }
-          steps {
-            container('jenkins-slave-mvn') {
-              withEnv(["PATH=${overridePath}"]) {
-                withSonarQubeEnv('sonarqube') {
-                  sh "/usr/bin/curl -k -X POST -u \"${SONAR_AUTH_TOKEN}:\" -F \"name=Jenkins\" -F \"url=http://teams-yellowdog.cloudbees.svc:80/teams-yellowdog/sonarqube-webhook/\" http://sonarqube.sonarqube.svc:9000/api/webhooks/create"
-                }
               }
             }
           }
