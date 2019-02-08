@@ -18,7 +18,6 @@ pipeline {
                   withSonarQubeEnv('sonar') {
                     try {
                       sh 'mvn install sonar:sonar'
-                      stage("Quality Gate") {
                       timeout(time: 1, unit: 'HOURS') {
                         waitForQualityGate abortPipeline: true
                       }
