@@ -1,304 +1,121 @@
 def ciProject = 'labs-ci-cd'
 def testProject = 'labs-test'
 def devProject = 'labs-dev'
-openshift.withCluster() {
-    openshift.withProject() {
-        ciProject = openshift.project()
-        testProject = ciProject.replaceFirst(/^labs-ci-cd/, 'labs-test')
-        devProject = ciProject.replaceFirst(/^labs-ci-cd/, 'labs-dev')
-    }
-}
-
-def buildConfig = { project, namespace, buildSecret, fromImageStream ->
-    if (!fromImageStream) {
-        fromImageStream = 'registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift'
-    }
-    def template = """
----
-apiVersion: build.openshift.io/v1
-kind: BuildConfig
-metadata:
-  labels:
-    build: ${project}
-  name: ${project}
-  namespace: ${namespace}
-spec:
-  failedBuildsHistoryLimit: 5
-  nodeSelector: null
-  output:
-    to:
-      kind: ImageStreamTag
-      name: '${project}:latest'
-  postCommit: {}
-  resources: {}
-  runPolicy: Serial
-  source:
-    binary: {}
-    type: Binary
-  strategy:
-    sourceStrategy:
-      from:
-        kind: DockerImage
-        name: '${fromImageStream}'
-    type: Source
-  successfulBuildsHistoryLimit: 5
-"""
-    openshift.withCluster() {
-        openshift.apply(template, "--namespace=${namespace}")
-    }
-}
-
-def deploymentConfig = {project, ciNamespace, targetNamespace ->
-    def template = """
----
-apiVersion: v1
-kind: List
-items:
-- apiVersion: v1
-  kind: ImageStream
-  metadata:
-    labels:
-      build: '${project}'
-    name: '${project}'
-    namespace: '${targetNamespace}'
-  spec: {}
-- apiVersion: v1
-  kind: DeploymentConfig
-  metadata:
-    labels:
-      app: '${project}'
-    name: '${project}'
-  spec:
-    replicas: 1
-    selector:
-      name: '${project}'
-    strategy:
-      activeDeadlineSeconds: 21600
-      resources: {}
-      rollingParams:
-        intervalSeconds: 1
-        maxSurge: 25%
-        maxUnavailable: 25%
-        timeoutSeconds: 600
-        updatePeriodSeconds: 1
-      type: Rolling
-    template:
-      metadata:
-        creationTimestamp: null
-        labels:
-          name: '${project}'
-      spec:
-        containers:
-          - image: '${project}'
-            imagePullPolicy: Always
-            name: '${project}'
-            env:
-            - name: KUBERNETES_NAMESPACE
-              value: labs-testuser10
-            - name: JAVA_ARGS
-              value: '-Dspring.profiles.active=openshift'
-            - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  key: database-user
-                  name: insultdb
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: database-password
-                  name: insultdb
-            - name: DB_HOST
-              value: insultdb
-            ports:
-              - containerPort: 8778
-                protocol: TCP
-              - containerPort: 8080
-                protocol: TCP
-            livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /api/v1/adjective
-                  port: 8080
-                  scheme: HTTP
-                initialDelaySeconds: 5
-                periodSeconds: 10
-                successThreshold: 1
-                timeoutSeconds: 1
-            readinessProbe:
-              failureThreshold: 3
-              httpGet:
-                path: /api/v1/adjective
-                port: 8080
-                scheme: HTTP
-              initialDelaySeconds: 10
-              periodSeconds: 10
-              successThreshold: 1
-              timeoutSeconds: 1
-            resources: {}
-            terminationMessagePath: /dev/termination-log
-        dnsPolicy: ClusterFirst
-        restartPolicy: Always
-        securityContext: {}
-        terminationGracePeriodSeconds: 30
-    test: false
-    triggers:
-      - type: ConfigChange
-      - imageChangeParams:
-          automatic: true
-          containerNames:
-            - '${project}'
-          from:
-            kind: ImageStreamTag
-            name: '${project}:latest'
-        type: ImageChange
-- apiVersion: v1
-  kind: Service
-  metadata:
-    labels:
-      name: '${project}'
-    name: '${project}'
-  spec:
-    ports:
-      - name: http
-        port: 8080
-        protocol: TCP
-        targetPort: 8080
-      - name: jolokia
-        port: 8778
-        protocol: TCP
-        targetPort: 8778
-    selector:
-      name: '${project}'
-    sessionAffinity: None
-    type: ClusterIP
-- apiVersion: v1
-  kind: Route
-  metadata:
-    labels:
-      name: '${project}'
-    name: '${project}'
-  spec:
-    port:
-      targetPort: http
-    to:
-      kind: Service
-      name: '${project}'
-      weight: 100
-    wildcardPolicy: None
-"""
-    openshift.withCluster() {
-        openshift.apply(template, "--namespace=${targetNamespace}")
-    }
-}
-
 pipeline {
-    agent {
-        label 'jenkins-slave-mvn'
-    }
-    options {
-        timeout(time: 15, unit: 'MINUTES')
-    }
-    environment {
-        PROJECT_NAME = 'adjective-service'
-    }
-    stages {
-        stage('Quality And Security') {
-            parallel {
-                stage('OWASP Dependency Check') {
-                    steps {
-                        sh 'mvn -T 2 dependency-check:check'
-                    }
-                }
-                stage('Compile & Test') {
-                    steps {
-                        sh 'mvn -T 2 package -Dspring.profiles.active=test'
-                    }
-                }
-                stage('Ensure SonarQube Webhook is configured') {
-                    when {
-                        expression {
-                            withSonarQubeEnv('sonar') {
-                                def retVal = sh(returnStatus: true, script: "curl -u \"${SONAR_AUTH_TOKEN}:\" http://sonarqube:9000/api/webhooks/list | grep Jenkins")
-                                echo "CURL COMMAND: ${retVal}"
-                                return (retVal > 0)
-                            }
-                        }
-                    }
-                    steps {
-                        withSonarQubeEnv('sonar') {
-                            sh "curl -X POST -u \"${SONAR_AUTH_TOKEN}:\" -F \"name=Jenkins\" -F \"url=http://jenkins/sonarqube-webhook/\" http://sonarqube:9000/api/webhooks/create"
-                        }
-                    }
-                }
-            }
-        }
-        stage('Wait for SonarQube Quality Gate') {
-            steps {
+  agent {
+    label 'jenkins-slave-mvn'
+  }
+  stages {
+    stage('Build, Quality, And Security') {
+      parallel {
+        stage('Build App') {
+          steps {
+            container('jenkins-slave-mvn') {
+              withEnv(["PATH=${overridePath}"]) {
                 script {
-                    withSonarQubeEnv('sonar') {
-                        sh 'mvn -T 2 sonar:sonar'
+                  def pom = readMavenPom file: 'pom.xml'
+                  mvnVersion = pom.version
+                  withSonarQubeEnv('sonarqube') {
+                    try {
+                      sh 'mvn install sonar:sonar'
+                    } catch (error) {
+                      publishHTML(target: [
+                              reportDir            : 'target',
+                              reportFiles          : 'dependency-check-report.html',
+                              reportName           : 'OWASP Dependency Check Report',
+                              keepAll              : true,
+                              alwaysLinkToLastBuild: true,
+                              allowMissing         : true
+                      ])
+                      publishHTML([
+                              allowMissing         : true,
+                              alwaysLinkToLastBuild: false,
+                              keepAll              : true,
+                              reportDir            : 'target/site/jacoco/',
+                              reportFiles          : 'index.html',
+                              reportName           : 'Jacoco Unit Test Report'
+                      ])
+                      zip dir: 'target/site/jacoco/',
+                              glob: '',
+                              zipFile: 'target/site/jacoco/jacoco-unit-tests.zip',
+                              archive: false
+    //                  emailext to: 'kfrankli@redhat.com',
+    //                          attachmentsPattern: '**/*.zip',
+    //                          subject: "Pipeline Build ${currentBuild.fullDisplayName} Unit Test Reports",
+    //                          body: """Pipeline Build ${
+    //                            currentBuild.fullDisplayName
+    //                          } Unit Test Reports attached."""
+                      throw error
                     }
-                    def qualitygate = waitForQualityGate()
-                    if (qualitygate.status != "OK") {
-                        error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
-                    }
+                  }
+                  def qualitygate = waitForQualityGate()
+                  if (qualitygate.status != "OK") {
+                    error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
+                  }
                 }
+                publishHTML(target: [
+                        reportDir            : 'target',
+                        reportFiles          : 'dependency-check-report.html',
+                        reportName           : 'OWASP Dependency Check Report',
+                        keepAll              : true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing         : false
+                ])
+                publishHTML(target: [
+                        reportDir            : 'target/site/jacoco/',
+                        reportFiles          : 'index.html',
+                        reportName           : 'Jacoco Unit Test Report',
+                        allowMissing         : true,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true
+                ])
+                sh "mkdir jacoco-tmp && cp -r target/site/jacoco jacoco-tmp && rm jacoco-tmp/jacoco/jacoco-resources/*.js"
+                zip dir: 'target/site/jacoco/',
+                        glob: '',
+                        zipFile: 'jacoco-unit-test-report.zip',
+                        archive: true
+                zip dir: 'jacoco-tmp/jacoco/',
+                        glob: '',
+                        zipFile: 'jacoco-unit-test-report-no-js.zip',
+                        archive: false
+              }
             }
+          }
         }
-        stage('OpenShift Deployments') {
-            parallel {
-                stage('Publish Artifacts') {
-                    steps {
-                        sh 'mvn package deploy:deploy -DskipTests -DaltDeploymentRepository=nexus::default::http://nexus:8081/repository/maven-snapshots/'
-                    }
-                }
-                stage('Create Binary BuildConfig') {
-                    steps {
-                        script {
-                            buildConfig(PROJECT_NAME, ciProject, UUID.randomUUID().toString())
-                        }
-                    }
-                }
-                stage('Create Test Deployment') {
-                    steps {
-                        script {
-                            deploymentConfig(PROJECT_NAME, ciProject, testProject)
-                        }
-                    }
-                }
-                stage('Create Dev Deployment') {
-                    steps {
-                        script {
-                            deploymentConfig(PROJECT_NAME, ciProject, devProject)
-                        }
-                    }
-                }
+        stage('Ensure SonarQube Webhook is configured') {
+          when {
+            expression {
+              withSonarQubeEnv('sonarqube') {
+                def retVal = sh(returnStatus: true, script: "curl -k -u \"${SONAR_AUTH_TOKEN}:\" http://sonarqube.sonarqube.svc:9000/api/webhooks/list | grep Jenkins")
+                echo "CURL COMMAND: ${retVal}"
+                return (retVal > 0)
+              }
             }
+          }
+          steps {
+            container('jenkins-slave-mvn') {
+              withEnv(["PATH=${overridePath}"]) {
+                withSonarQubeEnv('sonarqube') {
+                  sh "/usr/bin/curl -k -X POST -u \"${SONAR_AUTH_TOKEN}:\" -F \"name=Jenkins\" -F \"url=http://teams-yellowdog.cloudbees.svc:80/teams-yellowdog/sonarqube-webhook/\" http://sonarqube.sonarqube.svc:9000/api/webhooks/create"
+                }
+              }
+            }
+          }
         }
-        stage('Build Image') {
-            steps {
-                script {
-                    openshift.selector('bc', PROJECT_NAME).startBuild("--from-file=target/${PROJECT_NAME}-exec.jar", '--wait')
-                }
-            }
-        }
-        stage('Deploy to TEST') {
-            steps {
-                script {
-                    openshift.tag("${PROJECT_NAME}:latest", "${testProject}/${PROJECT_NAME}:latest")
-                }
-            }
-        }
-        stage('Promote to DEV') {
-            input {
-                message "Promote service to DEMO environment?"
-                ok "PROMOTE"
-            }
-            steps {
-                script {
-                    openshift.tag("${PROJECT_NAME}:latest", "${devProject}/${PROJECT_NAME}:latest")
-                }
-            }
-        }
+      }
     }
+    stage('Build Image') {
+      steps {
+        container('jenkins-slave-mvn') {
+          script {
+            withEnv(["PATH=${overridePath}"]) {
+              sh 'oc login --token=$(cat /run/secrets/kubernetes.io/serviceaccount/token) --insecure-skip-tls-verify=true https://openshift.default.svc:443'
+              sh "oc project ${ciProject}"
+              sh "oc start-build ${env.PROJECT_NAME} --from-file=target/human-review-backend-${mvnVersion}.jar --wait"
+            }
+          }
+        }
+      }
+    }
+  }
 }
