@@ -1,58 +1,300 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
    <suppress>
-      <notes><![CDATA[
-      file name: jackson-databind-2.9.3.jar
-      ]]></notes>
+      <notes>
+         <![CDATA[
+   file name: tomcat-embed-core-8.5.20.redhat-6.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.apache\.tomcat\.embed:tomcat-embed-core:.*$</gav>
+      <cve>CVE-2017-12617</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
       <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
-      <cpe>cpe:/a:fasterxml:jackson-databind</cpe>
+      <cve>CVE-2018-1000873</cve>
    </suppress>
    <suppress>
-      <gav>apache_software_foundation:tomcat:8.5.20</gav>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-14719</cve>
    </suppress>
    <suppress>
-      <gav>pivotal_software:spring_framework:4.3.17</gav>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-14720</cve>
    </suppress>
    <suppress>
-      <notes><![CDATA[file name: postgresql-42.2.2.jre7.jar]]</notes>
-      <gav>org.postgresql:postgresql:42.2.2.jre7</gav>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-14721</cve>
    </suppress>
    <suppress>
-      <gav>dom4j_project:dom4j:1.6.1</gav>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-19360</cve>
    </suppress>
-    <suppress>
-        <notes><![CDATA[
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-19361</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: jackson-databind-2.8.11.1.jar
+   ]]>
+      </notes>
+      <gav regex="true">^com\.fasterxml\.jackson\.core:jackson-databind:.*$</gav>
+      <cve>CVE-2018-19362</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: dom4j-1.6.1.redhat-7.jar
+   ]]>
+      </notes>
+      <gav regex="true">^dom4j:dom4j:.*$</gav>
+      <cve>CVE-2018-1000632</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: spring-tx-4.3.17.RELEASE.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.springframework:spring-tx:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: spring-tx-4.3.17.RELEASE.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.springframework:spring-tx:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: spring-tx-4.3.17.RELEASE.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.springframework:spring-tx:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: postgresql-42.2.2.jre7.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.postgresql:postgresql:.*$</gav>
+      <cve>CVE-2016-7048</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
+   file name: postgresql-42.2.2.jre7.jar
+   ]]>
+      </notes>
+      <gav regex="true">^org\.postgresql:postgresql:.*$</gav>
+      <cve>CVE-2018-1115</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
    file name: infinispan-core-9.1.3.Final.jar
-   ]]></notes>
-        <gav regex="true">^org\.infinispan:infinispan-core:.*$</gav>
-        <cve>CVE-2017-15089</cve>
-    </suppress>
-    <suppress>
-        <notes><![CDATA[
+   ]]>
+      </notes>
+      <gav regex="true">^org\.infinispan:infinispan-core:.*$</gav>
+      <cve>CVE-2017-15089</cve>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
    file name: vertx-infinispan-3.5.1.jar
-   ]]></notes>
-        <gav regex="true">^io\.vertx:vertx-infinispan:.*$</gav>
-        <cpe>cpe:/a:infinispan:infinispan</cpe>
-    </suppress>
-    <suppress>
-        <notes><![CDATA[
+   ]]>
+      </notes>
+      <gav regex="true">^io\.vertx:vertx-infinispan:.*$</gav>
+      <cpe>cpe:/a:infinispan:infinispan</cpe>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
    file name: zookeeper-3.4.10.jar
-   ]]></notes>
-        <gav regex="true">^org\.apache\.zookeeper:zookeeper:.*$</gav>
-        <cpe>cpe:/a:apache:zookeeper</cpe>
-    </suppress>
-    <suppress>
-       <notes><![CDATA[
+   ]]>
+      </notes>
+      <gav regex="true">^org\.apache\.zookeeper:zookeeper:.*$</gav>
+      <cpe>cpe:/a:apache:zookeeper</cpe>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
    file name: infinispan-cloud-9.1.3.Final.jar
-   ]]></notes>
-        <gav regex="true">^org\.infinispan:infinispan-cloud:.*$</gav>
-        <cpe>cpe:/a:infinispan:infinispan</cpe>
-    </suppress>
-    <suppress>
-        <notes><![CDATA[
+   ]]>
+      </notes>
+      <gav regex="true">^org\.infinispan:infinispan-cloud:.*$</gav>
+      <cpe>cpe:/a:infinispan:infinispan</cpe>
+   </suppress>
+   <suppress>
+      <notes>
+         <![CDATA[
    file name: jgroups-kubernetes-1.0.3.Final.jar
-   ]]></notes>
-        <gav regex="true">^org\.jgroups\.kubernetes:jgroups-kubernetes:.*$</gav>
-        <cpe>cpe:/a:kubernetes:kubernetes</cpe>
-    </suppress>
+   ]]>
+      </notes>
+      <gav regex="true">^org\.jgroups\.kubernetes:jgroups-kubernetes:.*$</gav>
+      <cpe>cpe:/a:kubernetes:kubernetes</cpe>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: tomcat-embed-websocket-8.5.20.redhat-6.jar
+      ]]></notes>
+      <gav regex="true">^org\.apache\.tomcat\.embed:tomcat-embed-websocket:.*$</gav>
+      <cve>CVE-2017-12617</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-aop-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-aop:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-aop-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-aop:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-aop-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-aop:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-web-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-web:.*$</gav>
+      <cpe>cpe:/a:pivotal:spring_framework</cpe>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-web-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-web:.*$</gav>
+      <cpe>cpe:/a:pivotal_software:spring_framework</cpe>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-orm-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-orm:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-orm-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-orm:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-orm-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-orm:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-jdbc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-jdbc:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-jdbc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-jdbc:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-jdbc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-jdbc:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-beans-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-beans:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-beans-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-beans:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-beans-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-beans:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-webmvc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-webmvc:.*$</gav>
+      <cve>CVE-2018-11039</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-webmvc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-webmvc:.*$</gav>
+      <cve>CVE-2018-11040</cve>
+   </suppress>
+   <suppress>
+      <notes><![CDATA[
+      file name: spring-webmvc-4.3.17.RELEASE.jar
+      ]]></notes>
+      <gav regex="true">^org\.springframework:spring-webmvc:.*$</gav>
+      <cve>CVE-2018-15756</cve>
+   </suppress>
 </suppressions>

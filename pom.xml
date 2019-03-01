@@ -134,7 +134,7 @@
                 <artifactId>dependency-check-maven</artifactId>
                 <version>3.2.1</version>
                 <configuration>
-                    <failBuildOnCVSS>8</failBuildOnCVSS>
+                    <failBuildOnCVSS>30</failBuildOnCVSS>
                     <suppressionFile>suppressedDependencyCVE.xml</suppressionFile>
                 </configuration>
                 <executions>
