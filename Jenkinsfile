@@ -228,7 +228,7 @@ pipeline {
                               reportDir            : 'target/site/jacoco/',
                               reportFiles          : 'index.html',
                               reportTitles         : 'Jacoco Unit Test Report',
-                              report Name.         : 'Jacoco Unit Test Report'
+                              reportName           : 'Jacoco Unit Test Report'
                         ])
                     }
                 }
