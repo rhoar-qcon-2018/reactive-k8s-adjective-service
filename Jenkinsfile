@@ -210,7 +210,7 @@ pipeline {
                         publishHTML(target: [
                               reportDir            : 'target',
                               reportFiles          : 'dependency-check-report.html',
-                              reportName           : 'OWASP Dependency Check Report',
+                              reportTitles         : 'OWASP Dependency Check Report',
                               keepAll              : true,
                               alwaysLinkToLastBuild: true,
                               allowMissing         : true
@@ -226,7 +226,7 @@ pipeline {
                               keepAll              : true,
                               reportDir            : 'target/site/jacoco/',
                               reportFiles          : 'index.html',
-                              reportName           : 'Jacoco Unit Test Report'
+                              reportTitles         : 'Jacoco Unit Test Report'
                         ])
                     }
                 }
