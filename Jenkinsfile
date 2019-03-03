@@ -207,11 +207,27 @@ pipeline {
                 stage('OWASP Dependency Check') {
                     steps {
                         sh 'mvn -T 2 dependency-check:check'
+                        publishHTML(target: [
+                              reportDir            : 'target',
+                              reportFiles          : 'dependency-check-report.html',
+                              reportName           : 'OWASP Dependency Check Report',
+                              keepAll              : true,
+                              alwaysLinkToLastBuild: true,
+                              allowMissing         : true
+                      ])
                     }
                 }
                 stage('Compile & Test') {
                     steps {
                         sh 'mvn -T 2 package -Dspring.profiles.active=test'
+                        publishHTML([
+                              allowMissing         : true,
+                              alwaysLinkToLastBuild: false,
+                              keepAll              : true,
+                              reportDir            : 'target/site/jacoco/',
+                              reportFiles          : 'index.html',
+                              reportName           : 'Jacoco Unit Test Report'
+                        ])
                     }
                 }
                 stage('Ensure SonarQube Webhook is configured') {
