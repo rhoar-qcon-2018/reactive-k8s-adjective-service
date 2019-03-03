@@ -211,6 +211,7 @@ pipeline {
                               reportDir            : 'target',
                               reportFiles          : 'dependency-check-report.html',
                               reportTitles         : 'OWASP Dependency Check Report',
+                              reportName           : 'OWASP Dependency Check Report',
                               keepAll              : true,
                               alwaysLinkToLastBuild: true,
                               allowMissing         : true
@@ -226,7 +227,8 @@ pipeline {
                               keepAll              : true,
                               reportDir            : 'target/site/jacoco/',
                               reportFiles          : 'index.html',
-                              reportTitles         : 'Jacoco Unit Test Report'
+                              reportTitles         : 'Jacoco Unit Test Report',
+                              report Name.         : 'Jacoco Unit Test Report'
                         ])
                     }
                 }
