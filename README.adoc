@@ -1,5 +1,3 @@
-[![DepShield Badge](https://depshield.sonatype.org/badges/owner/repository/depshield.svg)](https://depshield.github.io)
-
 = CRUD - Spring Boot Booster
 
 IMPORTANT: While you can run and interact with this booster on localhost, it requires that you also have a database installed and configured. This booster runs best when deployed on OpenShift with a PostgreSQL database. For more details on using this booster with a single-node OpenShift cluster, CI/CD deployments, as well as the rest of the runtime, see the link:http://launcher.fabric8.io/docs/spring-boot-runtime.html[Spring Boot Runtime Guide].
