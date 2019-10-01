@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
 public class UnsupportedMediaTypeException extends RuntimeException {
 
+    private static final long serialVersionUID = -882837619158209291L;
+
     public UnsupportedMediaTypeException(String message) {
         super(message);
     }
