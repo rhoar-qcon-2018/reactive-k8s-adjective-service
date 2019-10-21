@@ -16,7 +16,6 @@
 
 package io.openshift.booster.service;
 
-import com.fasterxml.jackson.databind.ser.std.IterableSerializer;
 import io.openshift.booster.exception.NotFoundException;
 import io.openshift.booster.exception.UnprocessableEntityException;
 import io.openshift.booster.exception.UnsupportedMediaTypeException;
@@ -50,7 +49,7 @@ public class AdjectiveController {
     public Adjective get(@PathVariable("id") Integer id) {
         verifyAdjectiveExists(id);
 
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @GetMapping
@@ -97,11 +96,11 @@ public class AdjectiveController {
     public void delete(@PathVariable("id") Integer id) {
         verifyAdjectiveExists(id);
 
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     private void verifyAdjectiveExists(Integer id) {
-        if (!repository.exists(id)) {
+        if (!repository.existsById(id)) {
             throw new NotFoundException(String.format("Adjective with id=%d was not found", id));
         }
     }

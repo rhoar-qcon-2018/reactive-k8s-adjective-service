@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.Spliterator;
 
 @RestController
 @RequestMapping(value = "/api/v1/adjective")

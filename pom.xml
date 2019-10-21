@@ -17,24 +17,74 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>io.openshift.booster</groupId>
-        <artifactId>spring-boot-booster-parent</artifactId>
-        <version>1.5.13-2-rhoar</version>
-    </parent>
 
     <artifactId>adjective-service</artifactId>
-
     <groupId>io.openshift.booster</groupId>
     <version>1.0.0-SNAPSHOT</version>
-
     <name>Spring Boot - CRUD Booster</name>
     <description>Spring Boot - CRUD Booster</description>
 
     <properties>
-        <postgresql.version>9.4.1212</postgresql.version>
+
+        <!-- Dependency management -->
+        <rhoar.spring-boot.version>2.1.6.SP3</rhoar.spring-boot.version>
+        <arquillian.version>1.4.1.Final</arquillian.version>
+        <arquillian.cube.version>1.18.2</arquillian.cube.version>
+
+        <!-- Plugins -->
+        <spring-boot-maven-plugin.version>2.1.6.RELEASE</spring-boot-maven-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <dependency-check-maven.version>5.2.2</dependency-check-maven.version>
+
+        <!-- Misc -->
         <start-class>io.openshift.booster.BoosterApplication</start-class>
+
     </properties>
+
+    <!-- Specify the repositories containing RHOAR artifacts. -->
+    <repositories>
+        <repository>
+            <id>redhat-ga</id>
+            <name>Red Hat GA Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </repository>
+    </repositories>
+
+    <!-- Specify the repositories containing the plugins used to execute the build of your application. -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga</id>
+            <name>Red Hat GA Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>me.snowdrop</groupId>
+                <artifactId>spring-boot-bom</artifactId>
+                <version>${rhoar.spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${arquillian.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.arquillian.cube</groupId>
+                <artifactId>arquillian-cube-bom</artifactId>
+                <version>${arquillian.cube.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -52,15 +102,19 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.2.jre7</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>5.1.1</version>
         </dependency>
 
         <!-- Testing -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-standalone</artifactId>
@@ -87,7 +141,6 @@
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.4.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -103,9 +156,18 @@
         <finalName>adjective-service</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.0.3.RELEASE</version>
+                <version>${spring-boot-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -117,22 +179,21 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <properties>
                         <spring.profiles.active>test</spring.profiles.active>
                     </properties>
                     <classpathDependencyExcludes>
-                        <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-openshift
-                        </classpathDependencyExclude>
-                        <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-kubernetes
-                        </classpathDependencyExclude>
+                        <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-openshift</classpathDependencyExclude>
+                        <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-kubernetes</classpathDependencyExclude>
                     </classpathDependencyExcludes>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>3.2.1</version>
+                <version>${dependency-check-maven.version}</version>
                 <configuration>
                     <failBuildOnCVSS>30</failBuildOnCVSS>
                     <suppressionFile>suppressedDependencyCVE.xml</suppressionFile>
